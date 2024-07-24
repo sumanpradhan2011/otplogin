@@ -1,0 +1,23 @@
+{
+  "name": "techflix/module-otplogin",
+  "description": "Login via OTP Without Password in Magento 2",
+  "type": "magento2-module",
+  "version": "1.0.1",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Techflix",
+      "email": "projects2complete@gmail.com",
+      "homepage": "https://www.techflix.in",
+      "role": "Technical Support"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Techflix\\OtpLogin\\": ""
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<form id="otp-login-form">
+    <div>
+        <label for="phone">Phone Number:</label>
+        <input type="text" name="phone" id="phone" required />
+    </div>
+    <div>
+        <button type="button" id="send-otp">Send OTP</button>
+    </div>
+    <div id="otp-section" style="display:none;">
+        <label for="otp">OTP:</label>
+        <input type="text" name="otp" id="otp" required />
+        <button type="button" id="verify-otp">Verify OTP</button>
+    </div>
+</form>
+
+<script type="text/javascript">
+    require(['jquery'], function($) {
+        $('#send-otp').on('click', function() {
+            var phone = $('#phone').val();
+            $.ajax({
+                url: '<?php echo $block->getUrl("otplogin/otp/send"); ?>',
+                type: 'POST',
+                data: { phone: phone },
+                success: function(response) {
+                    if (response.success) {
+                        $('#otp-section').show();
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        });
+
+        $('#verify-otp').on('click', function() {
+            var otp = $('#otp').val();
+            $.ajax({
+                url: '<?php echo $block->getUrl("otplogin/otp/verify"); ?>',
+                type: 'POST',
+                data: { otp: otp },
+                success: function(response) {
+                    if (response.success) {
+                        window.location.href = '<?php echo $block->getUrl("customer/account"); ?>';
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        });
+    });
+</script>

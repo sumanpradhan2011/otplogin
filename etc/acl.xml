@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Techflix_Adminhtml::admin">
+                <resource id="Techflix_OtpLogin::otplogin" title="OtpLogin" sortOrder="40">
+                    <resource id="Techflix_OtpLogin::manage" title="OtpLogin Module" sortOrder="10">
+						<resource id="Techflix_OtpLogin::save" title="Save OtpLogin" sortOrder="10" />
+                        <resource id="Techflix_OtpLogin::news_delete" title="Delete OtpLogin" sortOrder="20" />
+					</resource>
+                </resource>
+                <resource id="Techflix_Adminhtml::stores">
+                    <resource id="Techflix_Adminhtml::stores_settings">
+                        <resource id="Techflix_Adminhtml::config">
+                            <resource id="Techflix_OtpLogin::config_otplogin" title="OtpLogin Section" sortOrder="50" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
